@@ -5,15 +5,9 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+
 #define MAX_INPUT_LENGTH 1024
 
-// Function to display the shell prompt
-void display_prompt(void) {
-    if (isatty(STDIN_FILENO)) {
-        printf("#cisfun$ ");
-        fflush(stdout);  // Ensure prompt is displayed immediately
-    }
-}
 
 // Function to execute a command in a child process
 void execute_command(char *command) {
