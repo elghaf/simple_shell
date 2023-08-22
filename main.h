@@ -12,3 +12,5 @@
 // functions that need to start shell
 void display_prompt(void);
 char *get_input_line(void);
+
+#endif
