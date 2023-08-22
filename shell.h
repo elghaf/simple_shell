@@ -1,38 +1,30 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef MAIN_H
+#define MAIN_H
 
-/* Feature Test Macro Requirement for glibc getline() */
-#define _GNU_SOURCE
+typedef struct
+{
+	char *line;
+	char **args;
+} shell_t;
 
-/* Necessary header file */
-#include <stdio.h> /* i/o functionality */
-#include <errno.h> /* error type-check */
-#include <unistd.h> /* unix standard */
-#include <string.h> /* string manipulation header file */
-#include <sys/types.h> /* definition of integer constants */
-#include <sys/wait.h> /* to implement the wait() */
-#include <stdlib.h> /* stadard library */
-#include <stdbool.h> /* to use for boolean datatypes */
+void free_shell_data(shell_t *shell_data);
 
-/* FUNCTION PROTOTYPES  */
+extern char **environ;
 
-/* keyword functions */
-void get_keywords(char **, int *);
-void child_process_execute(char **av, int *cnt, char **argv);
-char **tokenize_keywords(char *, int *);
-char *find_path(char *command);
+void print_environ(void);
 
+void free_string_array(char *args[]);
 
-/* error functions */
-void print_error(int);
-void print_function_error(void);
-void print_exec_err(char **, int, char *);
+int _execute_command(char *args[]);
 
+void _print_error(char *sn, char *command);
 
-/* Freeing functions */
-void free_ptr(char *);
-void free_ptr_db(char **, int);
+int _strlen(char *s);
 
+int _strcmp(char *s1, char *s2);
 
+char **tokenize_string(char *s, const char *t);
 
-#endif /* SHELL Header File */
+void remove_newline(char *s);
+
+#endif /* MAIN_H */
