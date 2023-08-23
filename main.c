@@ -13,10 +13,11 @@
  */
 int main(void)
 {
+int i = 1;
 char *line;
 char **args;
 
-while (1)
+while (i)
 {
 print_prompt();
 line = read_input();
