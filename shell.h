@@ -161,10 +161,15 @@ void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 
 /* toem_atoi.c */
+//int _isalpha(int);
+int _atoi(char *);
+
 int check_interactive_mode(info_t *info);
 int is_character_delimiter(char c, char *delimiter_str);
-int is_alphabetic_character(int c);
-int convert_string_to_integer(char *input_str);
+//int is_alphabetic_character(int c);
+//int convert_string_to_integer(char *input_str);
+
+
 
 
 /* toem_errors1.c */

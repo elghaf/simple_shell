@@ -9,7 +9,7 @@
  *
  * Return: 1 if running in interactive mode, 0 otherwise
  */
-int interactive(info_t *result)
+int check_interactive_mode(info_t *result)
 {
 	if (isatty(STDIN_FILENO) && result->readfd <= 2) {
         return 1; // Running in interactive mode
@@ -42,10 +42,10 @@ int is_character_delimiter(char character, char *delimiter_str)
  * is_alphabetic - checks for alphabetic character
  * @c: The character to check.
  *
- * Return: 1 if @c is alphabetic, 0 otherwise.
+ * Return: 1 if int c is alphabetic, 0 otherwise.
  */
 
-int is_alphabetic(int c)
+int is_alphabetic_character(int c)
 {
 	int i = 1;
 
@@ -68,12 +68,12 @@ int is_alphabetic(int c)
 }
 
 /**
- * string_to_integer - Converts a string to an integer.
+ * convert_string_to_integer - Converts a string to an integer.
  * @input_str: The string to be converted.
  *
  * Return: The converted integer if successful, 0 otherwise.
  */
-int string_to_integer(char *input_str)
+int convert_string_to_integer(char *input_str)
 {
     int sign = 1, digit_flag = 0, result = 0;
 	int final_result, i = 0;
