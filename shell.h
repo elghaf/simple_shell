@@ -1,80 +1,67 @@
+#ifndef SHELL_H
+#define SHELL_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <string.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <stddef.h>
+#include <sys/stat.h>
+#include <signal.h>
 
-#define MAX_INPUT 1024
+int _putchar(char c);
+void _puts(char *str);
+int _strlen(char *s);
+char *_strdup(char *str);
+char *concat_all(char *name, char *sep, char *value);
 
-void execute_command(char *command) {
-    char *args[100];  // Maximum number of arguments
-    int i = 0;
+char **splitstring(char *str, const char *delim);
+void execute(char **argv);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
-    // Tokenize the input command
-    char *token = strtok(command, " ");
-    while (token != NULL) {
-        args[i] = token;
-        token = strtok(NULL, " ");
-        i++;
-    }
-    args[i] = NULL;  // Null-terminate the argument list
 
-    // Fork a child process
-    pid_t pid = fork();
+extern char **environ;
 
-    if (pid == 0) {
-        // Child process
-        if (execvp(args[0], args) == -1) {
-            perror("shell");
-        }
-        exit(EXIT_FAILURE);
-    } else if (pid > 0) {
-        // Parent process
-        wait(NULL);
-    } else {
-        perror("shell");
-    }
-}
+/**
+ * struct list_path - Linked list containing PATH directories
+ * @dir: directory in path
+ * @p: pointer to next node
+ */
+typedef struct list_path
+{
+	char *dir;
+	struct list_path *p;
+} list_path;
 
-int main(int argc, char *argv[]) {
-    char input[MAX_INPUT];
 
-    if (argc > 1) {
-        // File mode - Read commands from a file
-        FILE *file = fopen(argv[1], "r");
-        if (file == NULL) {
-            perror("shell");
-            exit(EXIT_FAILURE);
-        }
+char *_getenv(const char *name);
+list_path *add_node_end(list_path **head, char *str);
+list_path *linkpath(char *path);
+char *_which(char *filename, list_path *head);
 
-        while (fgets(input, sizeof(input), file) != NULL) {
-            // Remove trailing newline character
-            input[strcspn(input, "\n")] = '\0';
-            execute_command(input);
-        }
+/**
+ * struct mybuild - pointer to function with corresponding buildin command
+ * @name: buildin command
+ * @func: execute the buildin command
+ */
+typedef struct mybuild
+{
+	char *name;
+	void (*func)(char **);
+} mybuild;
 
-        fclose(file);
-    } else {
-        // Interactive mode - Read commands from the user
-        while (1) {
-            printf("shell$ ");
-            fflush(stdout);
+void(*checkbuild(char **arv))(char **arv);
+int _atoi(char *s);
+void exitt(char **arv);
+void env(char **arv);
+void _setenv(char **arv);
+void _unsetenv(char **arv);
 
-            if (fgets(input, sizeof(input), stdin) == NULL) {
-                break;  // End of input (Ctrl+D)
-            }
+void freearv(char **arv);
+void free_list(list_path *head);
 
-            // Remove trailing newline character
-            input[strcspn(input, "\n")] = '\0';
 
-            if (strcmp(input, "exit") == 0) {
-                break;  // Exit the shell
-            }
-
-            execute_command(input);
-        }
-    }
-
-    return 0;
-}
+#endif
