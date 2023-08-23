@@ -7,7 +7,7 @@
  *
  * Return: The input line read from the user
  */
-char *read_input()
+char *read_user_input()
 {
 char *line = NULL;
 size_t bufsize = 0;
