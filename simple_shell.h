@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef SIMPLE_SHELL_H
+#define SIMPLE_SHELL_H
 
 void print_prompt(void);
 char *read_input();
