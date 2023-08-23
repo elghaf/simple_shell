@@ -15,16 +15,16 @@ int main(void)
 {
 int i = 1;
 char *text_line;
-char **args;
+char **pass_argument;
 
 while (i)
 {
 print_prompt();
 text_line = read_input();
-args = parse_input(text_line);
-execute(args);
+pass_argument = parse_input(text_line);
+execute(pass_argument);
 free(text_line);
-free(args);
+free(pass_argument);
 }
 
 return (0);
