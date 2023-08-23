@@ -1,23 +1,21 @@
-#include "simple_shell.h"
-/**
- * main - This is entry point of simple shell program
- *
- * Fuctn implemnts the main loop of the shell
- *
- * Return: EXIT_SUCCESS (Always)
- */
+#include "shell.h"
+
 int main(void)
 {
-int interactive = isatty(STDIN_FILENO);
+    char *line;
+    char **args;
+    int status;
 
-if (!interactive)
-{
-handle_non_interactive();
-return (EXIT_SUCCESS);
+    do
+    {
+        printf("$ "); // Display a simple prompt
+        line = read_line(); // Implement your read_line function
+        args = split_line(line); // Implement your split_line function
+        status = execute(args); // Implement your execute function
+
+        free(line);
+        free(args);
+    } while (status);
+
+    return EXIT_SUCCESS;
 }
-
-handle_interactive();
-
-return (EXIT_SUCCESS);
-}
-
