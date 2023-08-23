@@ -11,7 +11,7 @@
  *
  * Return: Always returns 0.
  */
-int main(void)
+int main()
 {
 int i = 1;
 char *text_line;
