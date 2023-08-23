@@ -4,19 +4,14 @@
 
 /**
  * main - Entry point of the simple shell program
- * @argc: The argument count
- * @argv: The argument vector
  *
- * Description:
- * Entry point for program the simple shell.
- * It operates by repeatedly displaying the shell prompt,
- * reading user input, parsing the input,
- * and executing the parsed command along with its arguments.
+ * This function serves as the entry point for the simple shell.
+ * It repeatedly prints the shell prompt, reads input, parses the input,
+ * and executes the parsed arguments as a command.
  *
- * Return:
- * Always returns 0.
+ * Return: Always returns 0.
  */
-int main(int argc, char **argv)
+int main()
 {
 int i = 0;
 char *line;
@@ -38,3 +33,4 @@ free(line);
 }
 return (0);
 }
+
