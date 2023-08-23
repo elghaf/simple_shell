@@ -11,6 +11,14 @@
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
 /**
+ * print_prompt - Print the shell prompt
+ */
+void print_prompt(void)
+{
+printf("$ ");
+}
+
+/**
  * read_input - Read input from the user
  *
  * Return: The input line read from the user

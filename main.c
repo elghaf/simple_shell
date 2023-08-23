@@ -19,8 +19,7 @@ char **pass_argument;
 
 while (i)
 {
-//start the shell
-printf("$ ");
+print_prompt();
 text_line = read_input();
 pass_argument = parse_input(text_line);
 execute(pass_argument);
