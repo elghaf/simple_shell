@@ -28,7 +28,6 @@ print_prompt();
 line = read_input();
 args = parse_input(line);
 execute(args);
-
 // Free the memory allocated for the parsed arguments
 for (i = 0; args[i] != NULL; i++)
 {
