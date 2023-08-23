@@ -6,4 +6,10 @@ char *read_input();
 char **parse_input(char *line);
 int execute(char **args);
 
+/*function to interact with the shell*/
+void display_function(void);
+char *read_user_input();
+char **print_user_resutl(char *text_line);
+int run_command(char **args);
+
 #endif
