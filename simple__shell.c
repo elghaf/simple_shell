@@ -32,6 +32,8 @@ char *strings = NULL;
 size_t sizes = 0;
 ssize_t chars_reads;
 
+// Free the memory allocated by getline()
+free(string);
 chars_reads = getline(&strings, &sizes, stdin);
 return (chars_reads);
 }
