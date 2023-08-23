@@ -15,7 +15,10 @@
  */
 void display_function(void)
 {
-printf("$ ");
+	if (isatty(STDIN_FILENO))
+	{
+		write(STDOUT_FILENO, "$ ", 2);
+	}
 }
 
 /**
