@@ -28,11 +28,12 @@ void display_function(void)
  */
 char *read_input()
 {
-char *line = NULL;
-size_t bufsize = 0;
+char *strings = NULL;
+size_t sizes = 0;
+ssize_t chars_reads;
 
-getline(&line, &bufsize, stdin);
-return (line);
+chars_reads = getline(&strings, &sizes, stdin);
+return (chars_reads);
 }
 
 /**
