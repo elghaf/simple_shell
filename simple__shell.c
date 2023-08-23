@@ -11,9 +11,9 @@
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
 /**
- * print_prompt - Print the shell prompt
+ * display_function - Display the printf $
  */
-void print_prompt(void)
+void display_function(void)
 {
 printf("$ ");
 }
