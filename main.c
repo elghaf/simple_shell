@@ -2,10 +2,10 @@
 
 /**
  * main - entry point
- * @ac: arg count
- * @av: arg vector
+ * @ac: count the argument input
+ * @av: array of argument input
  *
- * Return: 0 on success, 1 on error
+ * Return: 0 on success, otherwise 1
  */
 int main(int ac, char **av)
 {

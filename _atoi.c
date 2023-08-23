@@ -1,74 +1,98 @@
 #include "shell.h"
 
 /**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
+ * check_interactive_shell - Check if the shell is running in interactive mode
+ * @result: Pointer to the info structure
  *
- * Return: 1 if interactive mode, 0 otherwise
+ * This function checks whether the shell is running in interactive mode by
+ * examining the file descriptor of the standard input.
+ *
+ * Return: 1 if running in interactive mode, 0 otherwise
  */
-int interactive(info_t *info)
+int interactive(info_t *result)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	if (isatty(STDIN_FILENO) && result->readfd <= 2) {
+        return 1; // Running in interactive mode
+    } else {
+        return 0; // Not running in interactive mode
+    }
 }
 
 /**
- * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
- * Return: 1 if true, 0 if false
+ * is_character_delimiter - Checks if a character is a delimiter.
+ * @character: The character to check.
+ * @delimiter_str: The delimiter string.
+ *
+ * Return: 1 if @character is a delimiter, 0 otherwise.
  */
-int is_delim(char c, char *delim)
+int is_character_delimiter(char character, char *delimiter_str)
 {
-	while (*delim)
-		if (*delim++ == c)
-			return (1);
-	return (0);
-}
-
-/**
- * _isalpha - checks for alphabetic character
- * @c: The character to input
- * Return: 1 if c is alphabetic, 0 otherwise
- */
-
-int _isalpha(int c)
-{
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
-}
-
-/**
- * _atoi - converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
- */
-
-int _atoi(char *s)
-{
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
-
-	for (i = 0; s[i] != '\0' && flag != 2; i++)
-	{
-		if (s[i] == '-')
-			sign *= -1;
-
-		if (s[i] >= '0' && s[i] <= '9')
+    while (*delimiter_str)
+    {
+        if (*delimiter_str == character)
 		{
-			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
+			return 1;
 		}
-		else if (flag == 1)
-			flag = 2;
+        delimiter_str++;
+    }
+    return 0;
+}
+
+/**
+ * is_alphabetic - checks for alphabetic character
+ * @c: The character to check.
+ *
+ * Return: 1 if @c is alphabetic, 0 otherwise.
+ */
+
+int is_alphabetic(int c)
+{
+	int i = 1;
+
+	if ((c >= 'A' && c <= 'Z'))
+	{
+		/* code */
+		return (i);
+	}
+	else if ((c >= 'a' && c <= 'z'))
+	{
+		/* code */
+		return (i);
+	}
+	else
+	{
+		i = 0;
+		return (i);	
 	}
 
-	if (sign == -1)
-		output = -result;
-	else
-		output = result;
-
-	return (output);
 }
+
+/**
+ * string_to_integer - Converts a string to an integer.
+ * @input_str: The string to be converted.
+ *
+ * Return: The converted integer if successful, 0 otherwise.
+ */
+int string_to_integer(char *input_str)
+{
+    int sign = 1, digit_flag = 0, result = 0;
+	int final_result, i = 0;
+
+    for (int index = 0; input_str[index] != '\0' && digit_flag != 2; index++)
+    {
+        if (input_str[index] == '-')
+            sign = sing * (-1);
+		else
+			i++;
+        if (input_str[index] >= '0' && input_str[index] <= '9')
+        {
+            digit_flag = 1;
+            result = (result * 10) + (input_str[index] - '0');
+        }
+        else if (digit_flag == 1)
+            digit_flag = 2;
+    }
+	final_result = sign * result;
+    return (final_result);
+}
+
