@@ -23,7 +23,7 @@ void execute_user_command(char **command_tokens)
     {
         command = command_tokens[0];
 
-        path_to_command = get_path(command);
+        path_to_command = get_full_path(command);
 
         if (path_to_command == NULL)
         {
