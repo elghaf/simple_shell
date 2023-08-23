@@ -1,22 +1,14 @@
 #include "simple_shell.h"
 #include <stdio.h>
+#include <sys/wait.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
-#include <sys/wait.h>
 
-/* Define constants */
+/* Define TOEKN BUFER SIZE */
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIMITERS " \t\r\n\a"
-
-/**
- * print_prompt - Print the shell prompt
- */
-void print_prompt(void)
-{
-printf("$ ");
-}
 
 /**
  * read_input - Read input from the user
