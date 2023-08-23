@@ -29,10 +29,9 @@ void display_function(void)
 char *read_input()
 {
 char *strings = NULL;
-size_t sizes = 0;
-ssize_t chars_reads;
+size_t bufsizes = 0;
 
-chars_reads = getline(&strings, &sizes, stdin);
+getline(&strings, &bufsizes, stdin);
 return (strings);
 }
 
