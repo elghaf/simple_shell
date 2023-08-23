@@ -2,17 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-
 /**
  * main - Entry point of the simple shell program
  * @argc: The argument count
  * @argv: The argument vector
  *
  * Description:
- * This is the main function that serves as the entry point for the simple shell program.
- * It operates by repeatedly displaying the shell prompt, reading user input, parsing the input,
+ * Entry point for program the simple shell.
+ * It operates by repeatedly displaying the shell prompt,
+ * reading user input, parsing the input,
  * and executing the parsed command along with its arguments.
  *
  * Return:
