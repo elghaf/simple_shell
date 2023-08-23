@@ -8,11 +8,10 @@
  * @argc: The argument count
  * @argv: The argument vector
  *
- * Description:
- * This function serves as the entry point for the simple shell.
+ * Description: This function serves as the entry point
+ * for the simple shell.
  *
- * Return:
- * Always returns 0.
+ * Return: Always returns 0.
  */
 int main(int argc, char **argv)
 {
