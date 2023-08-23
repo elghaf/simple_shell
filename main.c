@@ -19,7 +19,11 @@ char **pass_argument;
 
 while (i)
 {
+if (isatty(0))
+{
+/* code */
 display_function();
+}
 text_line = read_input();
 pass_argument = parse_input(text_line);
 execute(pass_argument);
