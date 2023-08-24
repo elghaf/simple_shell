@@ -48,7 +48,7 @@ int position = 0;
 char **tokens;
 char *token;
 
-**tokens = malloc(bufsize * sizeof(char *));
+tokens = malloc(bufsize * sizeof(char *));
 if (!tokens)
 {
 fprintf(stderr, "allocation error\n");
