@@ -61,7 +61,7 @@ while (parsed_token!= NULL)
 parsed_tokens [localisation] = parsed_token;
 localisation++;
 
-if (localisation >= bufsize)
+if (localisation >= buffer_size)
 {
 buffer_size+= TOKEN_BUFSIZE;
 parsed_tokens  = realloc(parsed_tokens , buffer_size*sizeof(char *));
