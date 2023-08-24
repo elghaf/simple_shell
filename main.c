@@ -22,9 +22,10 @@ while (i)
 display_function();
 text_line = read_user_input();
 pass_argument = print_user_resutl(text_line);
-execute_command(pass_argument);
+run_command(pass_argument);
 free(text_line);
 free(pass_argument);
 }
+
 return (0);
 }
