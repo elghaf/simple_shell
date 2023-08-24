@@ -171,7 +171,7 @@ int execute_command(char **args)
 {
 if (access(args[0], X_OK) == 0)
 {
-return (execute_external_command(args));
+return (run_specific_command(args));
 }
 else if (strcmp(args[0], "exit") == 0)
 {
