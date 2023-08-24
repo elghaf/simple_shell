@@ -6,6 +6,5 @@ void display_function(void);
 char *read_user_input();
 char **print_user_resutl(char *text_line);
 int run_command(char **args);
-void print_environment(void);
 
 #endif
