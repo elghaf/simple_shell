@@ -36,12 +36,12 @@ return (strings);
 }
 
 /**
- * parse_input - Parse user input into tokens
+ * print_user_resutl - Print user input to token
  * @input_line: The input line
  *
- * Return: An array of tokens
+ * Return: Array of tokens in return
  */
-char **parse_input(char *input_line)
+char **print_user_resutl(char *input_line)
 {
 int bufsize = TOKEN_BUFSIZE;
 int position = 0;
