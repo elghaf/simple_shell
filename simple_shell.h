@@ -1,6 +1,8 @@
 #ifndef SIMPLE_SHELL_H
 #define SIMPLE_SHELL_H
 
+/*Declaration the extern var*/
+extern char **environ;
 
 /*function to interact with the shell*/
 void display_function(void);
