@@ -72,7 +72,7 @@ exit(EXIT_FAILURE);
 parsed_token = strtok(NULL, TOKEN_DELIMITERS);
 }
 parsed_tokens[position] = NULL;
-return parsed_tokens;
+return (parsed_tokens);
 }
 
 /**
