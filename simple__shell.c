@@ -29,9 +29,9 @@ void display_function(void)
 char *read_input()
 {
 char *strings = NULL;
-size_t bufsizes = 0;
+size_t bufy = 0;
 
-getline(&strings, &bufsizes, stdin);
+getline(&strings, &bufy, stdin);
 return (strings);
 }
 
@@ -63,8 +63,8 @@ localisation++;
 
 if (localisation >= bufsize)
 {
-bufsize += TOKEN_BUFSIZE;
-parsed_tokens  = realloc(parsed_tokens , bufsize *sizeof(char *));
+buffer_size+= TOKEN_BUFSIZE;
+parsed_tokens  = realloc(parsed_tokens , buffer_size*sizeof(char *));
 if (!parsed_tokens )
 {
 fprintf(stderr, "allocation error\n");
