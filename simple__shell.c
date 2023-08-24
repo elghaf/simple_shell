@@ -45,9 +45,10 @@ char **parse_input(char *input_line)
 {
 int bufsize = TOKEN_BUFSIZE;
 int position = 0;
-char **tokens = malloc(bufsize * sizeof(char *));
+char **tokens;
 char *token;
 
+**tokens = malloc(bufsize * sizeof(char *));
 if (!tokens)
 {
 fprintf(stderr, "allocation error\n");
