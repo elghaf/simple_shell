@@ -29,9 +29,9 @@ void display_function(void)
 char *read_input()
 {
 char *strings = NULL;
-size_t bufy = 0;
+size_t bufsizes = 0;
 
-getline(&strings, &bufy, stdin);
+getline(&strings, &bufsizes, stdin);
 return (strings);
 }
 
@@ -43,39 +43,39 @@ return (strings);
  */
 char **parse_input(char *input_line)
 {
-int localisation = 0;
-int buffer_size = TOKEN_BUFSIZE;
-char **parsed_tokens;
-char *parsed_token;
+int bufsize = TOKEN_BUFSIZE;
+int position = 0;
+char **tokens = malloc(bufsize * sizeof(char *));
+char *token;
 
-parsed_tokens  = malloc(buffer_size* sizeof(char *));
-if (!parsed_tokens)
+
+if (!tokens)
 {
 fprintf(stderr, "allocation error\n");
 exit(EXIT_FAILURE);
 }
 
-parsed_token= strtok(input_line, TOKEN_DELIMITERS);
-while (parsed_token!= NULL)
+token = strtok(input_line, TOKEN_DELIMITERS);
+while (token != NULL)
 {
-parsed_tokens [localisation] = parsed_token;
-localisation++;
+tokens[position] = token;
+position++;
 
-if (localisation >= buffer_size)
+if (position >= bufsize)
 {
-buffer_size+= TOKEN_BUFSIZE;
-parsed_tokens  = realloc(parsed_tokens , buffer_size*sizeof(char *));
-if (!parsed_tokens )
+bufsize += TOKEN_BUFSIZE;
+tokens = realloc(tokens, bufsize *sizeof(char *));
+if (!tokens)
 {
 fprintf(stderr, "allocation error\n");
 exit(EXIT_FAILURE);
 }
 }
 
-parsed_token= strtok(NULL, TOKEN_DELIMITERS);
+token = strtok(NULL, TOKEN_DELIMITERS);
 }
-parsed_tokens [localisation] = NULL;
-return (parsed_tokens );
+tokens[position] = NULL;
+return (tokens);
 }
 
 /**
