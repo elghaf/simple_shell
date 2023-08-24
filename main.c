@@ -30,7 +30,8 @@ if (strcmp(pass_argument[0], "exit") == 0)
 // If the user entered "exit", break out of the loop
 exit(0);
 } 
-else {
+else 
+{
 run_command(pass_argument);
 }
 }
