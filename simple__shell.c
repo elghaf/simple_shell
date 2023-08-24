@@ -80,7 +80,7 @@ return (tokens);
 
 /**
  * run_command - Execute a command
- * @args: An array of arguments
+ * @arguments: An array of arguments
  *
  * Return: 1 on success, -1 on failure
  */
