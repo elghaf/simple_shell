@@ -87,7 +87,7 @@ return (tokens);
 int execute(char **args)
 {
 pid_t pid;
-int status;
+int pid_status;
 
 pid = fork();
 if (pid == 0)
@@ -104,7 +104,7 @@ perror("fork error");
 }
 else
 {
-waitpid(pid, &status, WUNTRACED);
+waitpid(pid, &pid_status, WUNTRACED);
 }
 return (1);
 }
