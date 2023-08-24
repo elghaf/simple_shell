@@ -10,19 +10,6 @@
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
-
-
-/**
- * display_function - Display the printf $
- */
-void display_function(void)
-{
-	if (isatty(STDIN_FILENO))
-	{
-		write(STDOUT_FILENO, "$ ", 2);
-	}
-}
-
 /**
  * read_user_input - Read input user command
  *
