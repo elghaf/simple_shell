@@ -11,19 +11,6 @@
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
 
-/**
- * print_environment - Print environment variables
- */
-void print_environment(void)
-{
-char **environ;
-int i = 0;
-
-for (i = 0; environ[i] != NULL; i++)
-{
-printf("%s\n", environ[i]);
-}
-}
 
 /**
  * display_function - Display the printf $
