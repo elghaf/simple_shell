@@ -50,10 +50,9 @@ char *parsed_token;
 
 if (!parsed_tokens)
 {
-fprintf(stderr, "allocation error\n");
+fprintf(stderr, "error\n");
 exit(EXIT_FAILURE);
 }
-
 parsed_token = strtok(input_line, TOKEN_DELIMITERS);
 while (parsed_token != NULL)
 {
@@ -66,7 +65,7 @@ buffer_size += TOKEN_BUFSIZE;
 parsed_tokens = realloc(parsed_tokens, buffer_size * sizeof(char *));
 if (!parsed_tokens)
 {
-fprintf(stderr, "perror\n");
+fprintf(stderr, "error\n");
 exit(EXIT_FAILURE);
 }
 }
