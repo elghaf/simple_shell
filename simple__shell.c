@@ -13,11 +13,6 @@
 
 /**
  * print_environment - Print environment variables
- *
- * Description:
- * This function prints the current environment variables.
- * It iterates through the array of environment,
- * strings and prints each one.
  */
 void print_environment(void)
 {
