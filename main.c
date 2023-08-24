@@ -20,12 +20,11 @@ char **pass_argument;
 while (i)
 {
 display_function();
-text_line = read_user_input();
-pass_argument = print_user_resutl(text_line);
-run_command(pass_argument);
+text_line = read_input();
+pass_argument = parse_input(text_line);
+execute_command(pass_argument);
 free(text_line);
 free(pass_argument);
 }
-
 return (0);
 }
