@@ -25,17 +25,7 @@ while (i)
 display_function();
 text_line = read_user_input();
 pass_argument = print_user_resutl(text_line);
-if (pass_argument != NULL && pass_argument[0] != NULL)
-{
-if (strcmp(pass_argument[0], "exit") == 0)
-{
-exit(0);
-}
-else
-{
 run_command(pass_argument);
-}
-}
 free(text_line);
 free(pass_argument);
 }
