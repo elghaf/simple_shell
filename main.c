@@ -22,7 +22,7 @@ while (i)
 display_function();
 text_line = read_input();
 pass_argument = parse_input(text_line);
-execute(pass_argument);
+run_command(pass_argument);
 free(text_line);
 free(pass_argument);
 }
