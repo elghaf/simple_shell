@@ -6,8 +6,10 @@
 /**
  * main - Entry point of the simple shell program
  *
- * This function serves as the entry point for the simple shell.
- * It repeatedly prints the shell prompt, reads input, parses the input,
+ * This function serves as the
+ * entry point for the simple shell.
+ * It repeatedly prints the shell prompt, 
+ * reads input, parses the input,
  * and executes the parsed arguments as a command.
  *
  * Return: Always returns 0.
@@ -23,9 +25,9 @@ while (i)
 display_function();
 text_line = read_user_input();
 pass_argument = print_user_resutl(text_line);
-if (pass_argument != NULL && pass_argument[0] != NULL) 
+if(pass_argument != NULL && pass_argument[0] != NULL) 
 {
-if (strcmp(pass_argument[0], "exit") == 0)
+if(strcmp(pass_argument[0], "exit") == 0)
 {
 exit(0);
 } 
