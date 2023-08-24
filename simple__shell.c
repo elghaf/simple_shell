@@ -19,9 +19,9 @@ void display_function(void)
 }
 
 /**
- * read_user_input - Read input user command
+ * read_user_input - Read input user input
  *
- * Return: The input user line
+ * Return: the string
  */
 char *read_user_input()
 {
@@ -33,10 +33,10 @@ return (strings_to_read);
 }
 
 /**
- * print_user_resutl - Print user input to token
- * @input_line: The input line
+ * print_user_resutl - display user token.
+ * @input_line: The input line.
  *
- * Return: Array of tokens in return
+ * Return: tokens array.
  */
 char **print_user_resutl(char *input_line)
 {
@@ -56,11 +56,11 @@ token = strtok(input_line, TOKEN_DELIMITERS);
 while (token != NULL)
 {
 tokens[position] = token;
-position++;
+position = position + 1;
 
 if (position >= bufsize)
 {
-bufsize += TOKEN_BUFSIZE;
+bufsize = bufsize + TOKEN_BUFSIZE;
 tokens = realloc(tokens, bufsize *sizeof(char *));
 if (!tokens)
 {
@@ -76,10 +76,10 @@ return (tokens);
 }
 
 /**
- * run_command - Execute a command
- * @arguments: An array of arguments
+ * run_command - Run the command.
+ * @arguments: Arguments arrays
  *
- * Return: 1 on success, -1 on failure
+ * Return: 1 on success, -1.
  */
 int run_command(char **arguments)
 {
