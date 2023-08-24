@@ -10,6 +10,24 @@
 #define TOKEN_BUFSIZE 64
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
+
+/**
+ * print_environment - Print environment variables
+ *
+ * Description:
+ * This function prints the current environment variables.
+ * It iterates through the array of environment strings and prints each one.
+ */
+void print_environment(void)
+{
+    extern char **environ; // This is an array of strings containing the environment variables
+
+    for (int i = 0; environ[i] != NULL; i++)
+    {
+        printf("%s\n", environ[i]);
+    }
+}
+
 /**
  * display_function - Display the printf $
  */
