@@ -20,12 +20,13 @@
  */
 void print_environment(void)
 {
-    extern char **environ; // This is an array of strings containing the environment variables
+extern char **environ; // This is an array of strings containing the environment variables
+int i = 0;
 
-    for (int i = 0; environ[i] != NULL; i++)
-    {
-        printf("%s\n", environ[i]);
-    }
+for (i = 0; environ[i] != NULL; i++)
+{
+printf("%s\n", environ[i]);
+}
 }
 
 /**
