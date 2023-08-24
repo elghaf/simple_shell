@@ -3,7 +3,7 @@
 
 void print_prompt(void);
 char *read_input();
-char **parse_input(char *line);
+char **parse_input(char *input_line);
 int execute(char **args);
 
 /*function to interact with the shell*/
