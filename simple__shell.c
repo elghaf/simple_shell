@@ -79,12 +79,12 @@ return (tokens);
 }
 
 /**
- * execute - Execute a command
+ * run_command - Execute a command
  * @args: An array of arguments
  *
  * Return: 1 on success, -1 on failure
  */
-int execute(char **args)
+int run_command(char **arguments)
 {
 pid_t pid;
 int pid_status;
@@ -92,7 +92,7 @@ int pid_status;
 pid = fork();
 if (pid == 0)
 {
-if (execvp(args[0], args) == -1)
+if (execvp(arguments[0], arguments) == -1)
 {
 perror("execvp error");
 }
