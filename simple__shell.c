@@ -37,11 +37,11 @@ return (strings);
 
 /**
  * parse_input - Parse user input into tokens
- * @line: The input line
+ * @input_line: The input line
  *
  * Return: An array of tokens
  */
-char **parse_input(char *line)
+char **parse_input(char *input_line)
 {
 int bufsize = TOKEN_BUFSIZE;
 int position = 0;
@@ -54,7 +54,7 @@ fprintf(stderr, "allocation error\n");
 exit(EXIT_FAILURE);
 }
 
-token = strtok(line, TOKEN_DELIMITERS);
+token = strtok(input_line, TOKEN_DELIMITERS);
 while (token != NULL)
 {
 tokens[position] = token;
