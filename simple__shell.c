@@ -22,11 +22,11 @@ void display_function(void)
 }
 
 /**
- * read_input - Read input from the user
+ * read_user_input - Read input user command
  *
- * Return: The input line read from the user
+ * Return: The input user line
  */
-char *read_input()
+char *read_user_input()
 {
 char *strings = NULL;
 size_t bufsizes = 0;
