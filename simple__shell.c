@@ -16,7 +16,7 @@
  */
 void print_environment(void)
 {
-extern char **environ; // This is an array of strings containing the environment variables
+extern char **environ;
 int i = 0;
 
 for (i = 0; environ[i] != NULL; i++)
