@@ -48,7 +48,7 @@ int buffer_size = TOKEN_BUFSIZE;
 char **parsed_tokens;
 char *parsed_token;
 
-parsed_tokens  = malloc(bufsize * sizeof(char *));
+parsed_tokens  = malloc(buffer_size* sizeof(char *));
 if (!parsed_tokens )
 {
 fprintf(stderr, "allocation error\n");
@@ -58,7 +58,7 @@ exit(EXIT_FAILURE);
 parsed_token= strtok(input_line, TOKEN_DELIMITERS);
 while (parsed_token!= NULL)
 {
-parsed_tokens [localisation] = token;
+parsed_tokens [localisation] = parsed_token;
 localisation++;
 
 if (localisation >= bufsize)
