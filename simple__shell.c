@@ -49,7 +49,7 @@ char **parsed_tokens;
 char *parsed_token;
 
 parsed_tokens  = malloc(buffer_size* sizeof(char *));
-if (!parsed_tokens )
+if (!parsed_tokens)
 {
 fprintf(stderr, "allocation error\n");
 exit(EXIT_FAILURE);
