@@ -6,11 +6,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 
-/* Define TOEKN BUFER SIZE */
-#define TOKEN_BUFSIZE 64
-#define TOKEN_DELIMITERS " \t\r\n\a"
-
-
 
 /**
  * display_function - Display the printf $
@@ -30,11 +25,11 @@ void display_function(void)
  */
 char *read_user_input()
 {
-char *strings = NULL;
+char *strings_to_read = NULL;
 size_t bufsizes = 0;
 
-getline(&strings, &bufsizes, stdin);
-return (strings);
+getline(&strings_to_read, &bufsizes, stdin);
+return (strings_to_read);
 }
 
 /**
